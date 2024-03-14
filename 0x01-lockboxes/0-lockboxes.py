@@ -4,23 +4,26 @@
 
 def canUnlockAll(boxes):
     """
+    There are n number of locked boxes. Each box is numbered sequentially
+    from 0 to n - 1 and each box may contain keys to the other boxes.
+
     Parameters:
     boxes (List[List[int]]): The list of lists representing the boxes
-        and their keys.
+    and their keys.
 
     Returns:
     bool: True if all boxes can be opened, else False.
     """
-    set = {0}
+    visited = {0}
     boxes_length = len(boxes)
 
-    for j in range(boxes_length):
-        if j in set:
-            box = boxes[j]
-            for i in range(len(box)):
-                index = box[i]
+    for box_index in range(boxes_length):
+        if box_index in visited:
+            box = boxes[box_index]
+            for key in range(len(box)):
+                index = box[key]
                 if (boxes[index] in boxes):
-                    set.add(index)
-                    if (len(set) == boxes_length):
+                    visited.add(index)
+                    if (len(visited) == boxes_length):
                         return True
     return False
