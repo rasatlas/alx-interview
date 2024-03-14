@@ -3,6 +3,14 @@
 
 
 def canUnlockAll(boxes):
+    """
+    Parameters:
+    boxes (List[List[int]]): The list of lists representing the boxes
+        and their keys.
+
+    Returns:
+    bool: True if all boxes can be opened, else False.
+    """
     set = {0}
     boxes_length = len(boxes)
 
