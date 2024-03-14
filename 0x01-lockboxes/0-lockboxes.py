@@ -15,11 +15,12 @@ def canUnlockAll(boxes):
     boxes_length = len(boxes)
 
     for j in range(boxes_length):
-        box = boxes[j]
-        for i in range(len(box)):
-            index = box[i]
-            if (boxes[index] in boxes):
-                set.add(index)
-                if (len(set) == boxes_length):
-                    return True
+        if j in set:
+            box = boxes[j]
+            for i in range(len(box)):
+                index = box[i]
+                if (boxes[index] in boxes):
+                    set.add(index)
+                    if (len(set) == boxes_length):
+                        return True
     return False
